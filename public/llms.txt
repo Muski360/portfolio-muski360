@@ -1,10 +1,10 @@
-# Murilo — Desenvolvedor em formação
+# Murilo Bastos — Desenvolvedor Full Stack em formação
 
-> Portfólio pessoal de Murilo, estudante do curso Técnico em Desenvolvimento de Sistemas no SENAI.
+> Portfólio pessoal de Murilo Bastos, estudante de 17 anos do curso Técnico em Desenvolvimento de Sistemas no SENAI Americana.
 
 ## Sobre
 
-Murilo se interessa por programação desde a infância. Pretende cursar Ciência da Computação e avançar profissionalmente na área de desenvolvimento de software.
+Murilo constrói sites, sistemas e aplicações enquanto desenvolve sua base como Full Stack. Seu foco atual combina React no front-end e Java com Spring Boot no back-end.
 
 ## Interesses
 
@@ -24,9 +24,17 @@ Murilo se interessa por programação desde a infância. Pretende cursar Ciênci
 
 ## Conteúdo do site
 
-- [Página inicial](https://SEU-DOMINIO.com/): apresentação, trajetória, interesses, tecnologias e contato.
+- [Página inicial](https://muski360.dev/): apresentação e stack principal.
+- [Sobre](https://muski360.dev/sobre): perfil, história, interesses e contato.
+- [Projetos](https://muski360.dev/projetos): Mentup e outros estudos técnicos.
+- [Experiências](https://muski360.dev/experiencias): formação acadêmica, prática e certificações.
+
+## Contato
+
+- E-mail: murilodovigo@gmail.com
+- GitHub: https://github.com/Muski360
+- LinkedIn: https://www.linkedin.com/in/murilo-dovigo-bastos-36b7a537a/
 
 ## Idioma
 
 O conteúdo principal está em português do Brasil.
-
