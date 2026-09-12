@@ -1,0 +1,32 @@
+# Murilo — Desenvolvedor em formação
+
+> Portfólio pessoal de Murilo, estudante do curso Técnico em Desenvolvimento de Sistemas no SENAI.
+
+## Sobre
+
+Murilo se interessa por programação desde a infância. Pretende cursar Ciência da Computação e avançar profissionalmente na área de desenvolvimento de software.
+
+## Interesses
+
+- Desenvolvimento de software
+- Inteligência artificial
+- Aprendizado contínuo
+- Evolução profissional
+
+## Tecnologias
+
+- Java
+- Spring Boot
+- React
+- Angular
+- PostgreSQL
+- PHP
+
+## Conteúdo do site
+
+- [Página inicial](https://SEU-DOMINIO.com/): apresentação, trajetória, interesses, tecnologias e contato.
+
+## Idioma
+
+O conteúdo principal está em português do Brasil.
+
