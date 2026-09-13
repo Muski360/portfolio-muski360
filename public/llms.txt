@@ -24,8 +24,8 @@ Murilo constrói sites, sistemas e aplicações enquanto desenvolve sua base com
 
 ## Conteúdo do site
 
-- [Página inicial](https://muski360.dev/): apresentação e stack principal.
-- [Sobre](https://muski360.dev/sobre): perfil, história, interesses e contato.
+- [Página inicial](https://muski360.dev/): apresentação e visão geral do portfólio.
+- [Sobre](https://muski360.dev/sobre): perfil, história, tecnologias, interesses e contato.
 - [Projetos](https://muski360.dev/projetos): Mentup e outros estudos técnicos.
 - [Experiências](https://muski360.dev/experiencias): formação acadêmica, prática e certificações.
 
