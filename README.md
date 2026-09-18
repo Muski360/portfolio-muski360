@@ -8,7 +8,7 @@
 
 <br />
 
-<a href="portfolio-muski360.muski.workers.dev" target="_blank" rel="noreferrer">
+<a href="https://portfolio-muski360.muski.workers.dev" target="_blank" rel="noreferrer">
   <img src="public/media/muski-disk.webp" width="220" alt="MUSKI360 - Disquete 3.5 polegadas" />
 </a>
 
@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <a href="portfolio-muski360.muski.workers.dev"><b>WEBSITE ↗</b></a>
+  <a href="https://portfolio-muski360.muski.workers.dev"><b>WEBSITE ↗</b></a>
   &nbsp;&nbsp;•&nbsp;&nbsp;
   <a href="https://github.com/Muski360"><b>GITHUB ↗</b></a>
   &nbsp;&nbsp;•&nbsp;&nbsp;
