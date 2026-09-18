@@ -2,8 +2,23 @@ import { build, createServer } from 'vite'
 import { createElement, StrictMode } from 'react'
 import { renderToString } from 'react-dom/server'
 import { readFile, writeFile } from 'node:fs/promises'
+import { routes, notFoundRoute, pageTitle, routeFile } from '../src/routes.js'
+import { siteOrigin } from '../src/data/site.js'
 
-// Generate the existing routes from the same React tree used in the browser.
+const escapeHtml = (value) =>
+  value.replace(
+    /[&<>"']/g,
+    (character) =>
+      ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      })[character],
+  )
+
+// The same React pages and route metadata serve the browser and static HTML.
 // Content, links and posters stay useful when JavaScript is delayed or fails.
 await build()
 const server = await createServer({
@@ -13,58 +28,33 @@ const server = await createServer({
 try {
   const { default: App } = await server.ssrLoadModule('/src/App.jsx')
   const template = await readFile('dist/index.html', 'utf8')
-  const pages = [
-    [
-      '/',
-      'index',
-      'Início',
-      'Portfólio de Murilo Bastos, desenvolvedor Full Stack em formação com foco em React, Spring Boot e inteligência artificial.',
-    ],
-    [
-      '/sobre',
-      'sobre',
-      'Sobre',
-      'Conheça Murilo Bastos, sua trajetória no desenvolvimento de software, interesses e canais de contato.',
-    ],
-    [
-      '/projetos',
-      'projetos',
-      'Projetos',
-      'Projetos e experimentos de Murilo Bastos em desenvolvimento web, APIs, inteligência artificial e mobile.',
-    ],
-    [
-      '/experiencias',
-      'experiencias',
-      'Experiências',
-      'Formação, prática em projetos e certificações de Murilo Bastos.',
-    ],
-    ['/404', '404', 'Página não encontrada', 'A página solicitada não existe.'],
-  ]
-  for (const [route, file, title, description] of pages) {
+  for (const route of [...routes, notFoundRoute]) {
     const markup = renderToString(
       createElement(
         StrictMode,
         null,
-        createElement(App, { serverLocation: route }),
+        createElement(App, {
+          serverLocation: route.noindex ? '/404' : route.path,
+        }),
       ),
     )
+    const indexing = route.noindex
+      ? '<meta name="robots" content="noindex" />'
+      : `<link rel="canonical" href="${escapeHtml(`${siteOrigin}${route.path}`)}" />`
     const html = template
       .replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
       .replace(
         /<title>.*?<\/title>/,
-        `<title>${title} | Murilo Bastos — MUSKI360</title>`,
+        `<title>${escapeHtml(pageTitle(route))}</title>`,
       )
       .replace(
-        /<meta name="description" content="[^"]*"\s*\/>/,
-        `<meta name="description" content="${description}" />`,
+        /<meta\s+name="description"\s+content="[^"]*"\s*\/>/,
+        `<meta name="description" content="${escapeHtml(route.description)}" />`,
       )
-      .replace(
-        '</head>',
-        `${file === '404' ? '<meta name="robots" content="noindex" />' : `<link rel="canonical" href="https://muski360.dev${route === '/' ? '/' : route}" />`}\n</head>`,
-      )
-    await writeFile(`dist/${file}.html`, html)
+      .replace('</head>', `${indexing}\n</head>`)
+    await writeFile(`dist/${routeFile(route)}`, html)
   }
-  console.log('Prerendered 4 routes and the 404 page.')
+  console.log(`Prerendered ${routes.length} routes and the 404 page.`)
 } finally {
   await server.close()
 }

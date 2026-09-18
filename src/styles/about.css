@@ -1,0 +1,362 @@
+.stack-section {
+  padding-bottom: 110px;
+  border-top: 1px solid var(--line);
+  padding-top: 80px;
+}
+.stack-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr;
+  gap: 10%;
+  padding-top: 0;
+}
+.stack-intro {
+  position: relative;
+}
+.stack-intro h2 {
+  margin: 22px 0 30px;
+  font-size: clamp(45px, 5.6vw, 85px);
+}
+.stack-intro > p:not(.eyebrow) {
+  color: var(--muted);
+  max-width: 280px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.skill-list {
+  border-top: 1px solid var(--ink);
+}
+.skill-row {
+  display: grid;
+  grid-template-columns: 35px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding 0.25s var(--ease);
+}
+.skill-row:hover {
+  padding-left: 10px;
+}
+.skill-row h3 {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+.skill-row p {
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: 13px;
+}
+.skill-tag {
+  font: 8px var(--mono);
+  padding: 5px 0;
+}
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 8%;
+  align-items: center;
+  margin-top: 30px;
+}
+.about-hero h1 {
+  font: 800 clamp(70px, 8.2vw, 138px)/0.88 var(--display);
+  letter-spacing: -0.025em;
+  margin: 24px 0 38px;
+}
+.about-hero h1 .serif-word {
+  font-size: 0.56em;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+.about-lead {
+  font-size: 15px;
+  max-width: 420px;
+  margin-bottom: 25px;
+}
+.about-portrait {
+  transform: rotate(3deg);
+  margin-right: 5%;
+}
+.about-portrait .portrait {
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+.about-portrait figcaption {
+  padding: 18px 15px;
+  background: var(--orange);
+  font: 9px var(--mono);
+}
+.story-section {
+  background: #deded4;
+  padding-top: 45px;
+}
+.story-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+  margin-top: 70px;
+}
+.story-layout > div > p {
+  font-size: 14px;
+  max-width: 620px;
+  color: #52544c;
+  margin-bottom: 24px;
+}
+.story-layout > div > p.lead-copy {
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--ink);
+  letter-spacing: -0.035em;
+}
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 65px;
+  border-top: 1px solid #b4b5a9;
+  padding-top: 35px;
+}
+.facts > div {
+  border-right: 1px solid #b4b5a9;
+  padding: 0 25px;
+  text-align: center;
+}
+.facts > div:last-child {
+  border: 0;
+}
+.facts span {
+  font: 800 clamp(65px, 8vw, 130px)/1 var(--display);
+  letter-spacing: -0.045em;
+}
+.facts p {
+  font: 9px var(--mono);
+  margin-top: 12px;
+}
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 10%;
+  align-items: center;
+}
+.contact-section h2 {
+  margin-top: 25px;
+  font-size: clamp(45px, 5.5vw, 88px);
+}
+.contact-links {
+  border-top: 1px solid var(--ink);
+}
+.contact-links a {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 15px;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-links a > span {
+  font: 9px var(--mono);
+}
+.contact-links strong {
+  font-size: 15px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.about-hero {
+  padding-top: 65px;
+}
+@media (max-width: 1200px) {
+  .stack-layout {
+    gap: 7%;
+  }
+}
+@media (max-width: 900px) {
+  .story-section {
+    padding-top: 35px;
+  }
+  .stack-layout {
+    gap: 6%;
+  }
+  .stack-intro h2 {
+    font-size: 6vw;
+  }
+  .skill-row {
+    gap: 12px;
+    padding-block: 22px;
+    grid-template-columns: 20px 1fr auto;
+  }
+  .skill-row h3 {
+    font-size: 27px;
+  }
+  .skill-tag {
+    font-size: 7px;
+  }
+  .about-hero-grid {
+    gap: 6%;
+  }
+  .about-hero h1 {
+    font-size: 8.4vw;
+  }
+  .about-lead {
+    font-size: 13px;
+  }
+  .story-layout {
+    gap: 8%;
+    margin-top: 55px;
+  }
+  .story-layout > div > p.lead-copy {
+    font-size: 19px;
+  }
+  .story-layout > div > p {
+    font-size: 12px;
+  }
+  .facts > div {
+    padding-inline: 15px;
+  }
+  .contact-section {
+    gap: 7%;
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+  .contact-links a {
+    grid-template-columns: 50px 1fr auto;
+    gap: 10px;
+  }
+  .contact-links strong {
+    font-size: 12px;
+  }
+  .contact-links a > span {
+    font-size: 8px;
+  }
+  .contact-links .arrow {
+    width: 18px;
+  }
+  .skill-row p {
+    font-size: 11px;
+  }
+  .stack-section {
+    padding-bottom: 75px;
+  }
+}
+@media (max-width: 650px) {
+  .story-section {
+    padding-top: 30px;
+  }
+  .stack-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .stack-intro h2 {
+    font-size: 16vw;
+  }
+  .stack-intro > p:not(.eyebrow) {
+    max-width: none;
+  }
+  .skill-row {
+    grid-template-columns: 30px 1fr auto;
+    gap: 12px;
+    padding: 22px 0;
+  }
+  .skill-row h3 {
+    font-size: 30px;
+  }
+  .skill-row p {
+    max-width: 230px;
+    font-size: 12px;
+  }
+  .skill-tag {
+    font-size: 8px;
+  }
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    margin-top: 0;
+  }
+  .about-hero h1 {
+    font-size: 16vw;
+    line-height: 0.9;
+    margin: 22px 0;
+  }
+  .about-hero h1 .serif-word {
+    font-size: 0.6em;
+  }
+  .about-lead {
+    font-size: 14px;
+    max-width: 420px;
+  }
+  .about-portrait {
+    max-width: 370px;
+    width: 85%;
+    margin-inline: auto;
+  }
+  .about-portrait .portrait {
+    aspect-ratio: 1/1.12;
+    object-position: 50% 35%;
+    height: auto;
+  }
+  .story-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-top: 45px;
+  }
+  .story-layout h2 {
+    font-size: 17vw;
+  }
+  .story-layout > div > p.lead-copy {
+    font-size: 20px;
+  }
+  .story-layout > div > p {
+    font-size: 13px;
+  }
+  .facts {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 0;
+    padding-top: 30px;
+    margin-top: 30px;
+  }
+  .facts > div:nth-child(2) {
+    border: 0;
+  }
+  .facts span {
+    font-size: 70px;
+  }
+  .facts p {
+    font-size: 8px;
+  }
+  .contact-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .contact-section h2 {
+    font-size: 60px;
+  }
+  .contact-links a {
+    grid-template-columns: 55px 1fr auto;
+    padding: 25px 0;
+    gap: 10px;
+  }
+  .contact-links strong {
+    font-size: 12px;
+  }
+  .contact-links a > span {
+    font-size: 8px;
+  }
+  .about-hero {
+    padding-top: 45px;
+  }
+  .stack-section {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+}
+@media (max-width: 360px) {
+  .contact-links a {
+    grid-template-columns: 1fr auto;
+  }
+  .contact-links a > span,
+  .contact-links strong {
+    grid-column: 1;
+  }
+  .contact-links .arrow {
+    grid-column: 2;
+    grid-row: 1/3;
+  }
+}

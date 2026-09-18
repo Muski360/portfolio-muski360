@@ -36,16 +36,28 @@ React 19 e React Router mantêm a navegação. Vite 8 gera os arquivos de produ�
 
 ## Editar conteúdo
 
-1. Adicione projetos à coleção `projects` em [src/content.js](src/content.js). Cada registro contém `id` único, nome, categoria, tipo, cor, descrição, tecnologias, repositório, vídeo, poster, texto alternativo, título de detalhes, explicação e funcionalidades. Use o Mentup como referência de estrutura; não é necessário editar a homepage.
+1. Adicione projetos à coleção `projects` em [src/data/projects.js](src/data/projects.js). Cada registro contém `id` único, nome, categoria, tipo, cor, descrição, tecnologias, repositório, poster, texto alternativo, título de detalhes, explicação e funcionalidades. O vídeo é opcional: sem ele, o poster permanece visível. Use o Mentup como referência de estrutura; não é necessário editar a homepage.
 2. Coloque os arquivos otimizados em `public/media/`. `graphic: 'court'` é uma opção específica para a composição do Mentup; omita esse campo nos demais projetos. Verifique o contraste quando escolher uma nova cor.
-3. Edite também as coleções de tecnologias, estudos e certificações em `src/content.js`. Perfil, contatos e composição das páginas ficam em `src/App.jsx`.
-4. Atualize metadados em `PageMeta` e `scripts/build.mjs`, além de `public/sitemap.xml` e `public/llms.txt`, quando o conteúdo mudar.
+3. Edite os repositórios de estudos em `src/data/projects.js`, tecnologias e certificações em [src/data/profile.js](src/data/profile.js) e contatos em [src/data/site.js](src/data/site.js). A composição e os textos de cada página ficam em `src/pages/`.
+4. Atualize títulos, descrições e caminhos em [src/routes.js](src/routes.js), fonte compartilhada pela navegação, metadados e build estático. Ao adicionar uma rota, registre também sua página em `src/App.jsx` e atualize `public/sitemap.xml` e `public/llms.txt`.
+
+## Organização
+
+| Local | Responsabilidade |
+| --- | --- |
+| `src/pages/` | Conteúdo e composição de cada rota |
+| `src/components/` | Layout compartilhado, UI, projetos, mídia e controles de movimento |
+| `src/hooks/` | Preferência de movimento e ciclo de reprodução dos vídeos |
+| `src/data/` e `src/routes.js` | Coleções, contatos e configuração das rotas |
+| `src/styles/` | Estilos globais e arquivos por área; `index.css` define a ordem de importação |
+
+`src/App.jsx` compõe o roteador e o layout. `RouteEffects` cuida dos metadados, foco e posição de leitura ao navegar. `scripts/build.mjs` renderiza essas mesmas páginas; não há uma segunda versão do conteúdo para o HTML estático.
 
 ## Identidade e movimento
 
 As imagens e vídeos vêm de `references/`; os originais são preservados. O PNG `Disquete.png` origina o WebP usado na 404. Fontes locais Barlow Condensed, DM Sans e DM Mono incluem as licenças OFL em `public/fonts/`.
 
-`src/App.css` concentra composição e responsividade. `src/Media.jsx` controla vídeos, retrato, animação do rodapé e preferência de movimento. O disquete permite escolher uma posição com mouse, toque ou teclado. O rodapé anima brevemente ao aparecer e ao receber foco ou ponteiro; não permanece em movimento contínuo.
+Os estilos em `src/styles/` mantêm as regras responsivas próximas da composição correspondente. `Film` apresenta a mídia, `useVideoPlayback` gerencia sua reprodução e `MotionProvider` compartilha a preferência de movimento. `FooterInvite` controla a animação do rodapé. O disquete permite escolher uma posição com mouse, toque ou teclado. O rodapé anima brevemente ao aparecer e ao receber foco ou ponteiro; não permanece em movimento contínuo.
 
 O controle no cabeçalho pausa os movimentos. `prefers-reduced-motion` mantém a apresentação estática, vídeos fora da tela são pausados e posters permanecem disponíveis quando o vídeo falha. O menu mobile usa um diálogo nativo com navegação alternativa no HTML estático.
 
@@ -59,6 +71,6 @@ O script usa o original, normaliza os timestamps a 24 fps, corta a volta e cria 
 
 ## Publicação
 
-Execute `npm run build` e publique `dist/`. A configuração da Vercel usa `cleanUrls` e o arquivo estático `404.html`; não é necessário redirecionar todas as rotas para `index.html`. Em outro serviço, configure os quatro caminhos para os arquivos HTML correspondentes e uma resposta 404 real para endereços inexistentes.
+Execute `npm run build` e publique `dist/`. `wrangler.jsonc` configura os assets estáticos do Cloudflare com tratamento de HTML e `404-page`; `npx wrangler dev --local` permite conferir esse servidor localmente após o build. A configuração da Vercel usa `cleanUrls` e o arquivo estático `404.html`; não é necessário redirecionar todas as rotas para `index.html`. Em outro serviço, configure os quatro caminhos para os arquivos HTML correspondentes e uma resposta 404 real para endereços inexistentes.
 
-Veja as decisões visuais, testes e limitações em [docs/design-review.md](docs/design-review.md).
+Veja a auditoria mais recente em [docs/refinement-review.md](docs/refinement-review.md) e as decisões da primeira revisão em [docs/design-review.md](docs/design-review.md).
