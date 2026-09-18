@@ -61,6 +61,8 @@ Os estilos em `src/styles/` mantêm as regras responsivas próximas da composiç
 
 O controle no cabeçalho pausa os movimentos. `prefers-reduced-motion` mantém a apresentação estática, vídeos fora da tela são pausados e posters permanecem disponíveis quando o vídeo falha. O menu mobile usa um diálogo nativo com navegação alternativa no HTML estático.
 
+`SmoothScroll` usa **Lenis 1.3.26**, pela integração oficial `lenis/react`, para suavizar mouse e trackpad com `lerp: 0.12`. O toque permanece nativo. Pausar o movimento ou ativar movimento reduzido remove a suavização e conserva a posição de leitura. Teclado e seleção interrompem a inércia; o menu bloqueia somente a rolagem da página ao fundo. `RouteEffects` coordena âncoras, foco e histórico, sem duplicar o controle de navegação no Lenis.
+
 Para reproduzir a preparação do loop, instale FFmpeg com libvpx-vp9 e libx264 no PATH e execute:
 
 ```sh

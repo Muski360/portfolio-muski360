@@ -45,3 +45,23 @@ O Wrangler local respondeu `200` com o vídeo inteiro a pedidos `Range`, enquant
 Esse resultado não comprova falha no Cloudflare publicado. Nenhum deploy foi feito; o suporte a Range e a rotação manual devem ser conferidos na próxima publicação. Safari/iPhone físico também não foi validado; a tentativa de obter WebKit para o ambiente de teste falhou por timeout.
 
 Capturas e relatórios ficam em `.design-review/`, ignorado pelo Git: `round2-validation.json`, `round2-extra-chrome.json`, `round2-extra-msedge.json`, `round2-host.json`, `lighthouse-round2.json` e capturas `round2-*.png`. O README documenta a nova organização e os pontos de edição.
+
+## Smooth scroll — 18/09/2026
+
+Foi escolhido **Lenis 1.3.26 com `lenis/react`**, após comparar três soluções:
+
+| Opção | Adequação ao projeto |
+| --- | --- |
+| [Lenis](https://github.com/darkroomengineering/lenis) | Integração React oficial, rolagem sobre o documento nativo e controle direto da suavização. Atende à necessidade com uma dependência. |
+| [Locomotive Scroll](https://github.com/locomotivemtl/locomotive-scroll) | A versão atual usa Lenis e acrescenta detecção e parallax; o site já tem seus observadores e animações de scroll. |
+| [GSAP ScrollSmoother](https://gsap.com/docs/v3/Plugins/ScrollSmoother/) | Apropriado para uma experiência coordenada por GSAP/ScrollTrigger. Exigiria essa estrutura e wrappers de conteúdo, sem ganho necessário neste caso. |
+
+`SmoothScroll` usa interpolação curta (`lerp: 0.12`) no mouse e trackpad. Toque, teclado e barra de rolagem continuam nativos. O controle existente de movimento e a preferência do sistema desmontam o Lenis, preservando a posição; não há outro botão ou contexto próprio para a biblioteca. O wrapper React cuida da criação, animação e destruição da instância.
+
+O teste de interrupção encontrou inércia ainda ativa depois de Home. Um listener pequeno devolve o controle antes da navegação por teclado ou do início de seleção com o ponteiro. Os listeners são removidos no teardown; três ciclos de pausa e retomada mantiveram a mesma contagem de listeners na janela.
+
+`RouteEffects` continua responsável por âncoras, foco e histórico. Trocas de rota cancelam a inércia e recalculam as dimensões antes de posicionar a página. O menu suspende o Lenis e conserva a rolagem interna do diálogo. Os links compartilhados mantêm `href="#conteudo"`, evitando que a pré-renderização da 404 substitua o endereço desconhecido por `/404`. Foi removido o preload redundante da DM Sans: Vite emitia URLs diferentes no HTML e CSS para o nome com colchetes, causando dois downloads da mesma fonte. A fonte dos grandes títulos continua pré-carregada; DM Sans é carregada pelo CSS.
+
+**Validação:** build e lint passaram; a suíte geral passou **263/263 verificações** em 30 combinações de rota e largura, sem erros inesperados de console. Passaram **16 verificações de scroll no Chrome e 16 no Edge**, mais **nove casos adicionais** de hash na 404, listeners, deltas pequenos, seleção, PageDown, deep link e swipe touch emulado. As capturas finais confirmam a composição durante a rolagem. Mouse e toque foram exercitados por automação; trackpad foi representado por deltas pequenos, sem teste em hardware físico.
+
+O JavaScript final com a integração ficou em **315,67 kB / 98,40 kB gzip**, acréscimo de **6,12 kB gzip** sobre a revisão anterior. A medição Lighthouse mobile continua em **92/100/100/100**, com CLS 0 e TBT 0 ms. Relatórios locais: `lenis-chrome.json`, `lenis-msedge.json`, `lenis-edge-cases.json` e `lighthouse-lenis.json`; verificações reproduzíveis nos scripts `lenis-check.mjs` e `lenis-edge-cases.mjs` em `.design-review/`.

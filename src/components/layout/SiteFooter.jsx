@@ -1,9 +1,11 @@
+import { useLinkClickHandler } from 'react-router-dom'
 import { Brand } from './Brand'
 import { FooterInvite } from './FooterInvite'
 import { Arrow } from '../ui/Arrow'
 import { email, github, linkedin } from '../../data/site'
 
 export function SiteFooter() {
+  const backToTop = useLinkClickHandler('#conteudo')
   return (
     <footer className="site-footer">
       <div className="footer-top">
@@ -30,9 +32,10 @@ export function SiteFooter() {
       <div className="footer-bottom">
         <Brand />
         <span>© {new Date().getFullYear()} Murilo Bastos</span>
-        <Link to="#conteudo">Voltar ao topo ↑</Link>
+        <a href="#conteudo" onClick={backToTop}>
+          Voltar ao topo ↑
+        </a>
       </div>
     </footer>
   )
 }
-import { Link } from 'react-router-dom'

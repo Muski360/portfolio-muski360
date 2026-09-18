@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { ProjectCase } from '../components/projects/ProjectCase'
 import { Arrow } from '../components/ui/Arrow'
 import { TextLink } from '../components/ui/TextLink'
@@ -67,4 +68,3 @@ export default function ProjectsPage() {
     </main>
   )
 }
-import { Link } from 'react-router-dom'
