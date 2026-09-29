@@ -1,4 +1,4 @@
-# Contexto de Portfólio — Murilo Bastos
+# Contexto de Portfólio — Murilo Dovigo
 
 > Documento-base para criação de um portfólio digital pessoal/profissional.
 > Use este arquivo como **fonte de contexto**, não como texto que precisa aparecer integralmente no site.
@@ -8,8 +8,8 @@
 
 ## 1. Identidade
 
-**Nome:** Murilo Bastos  
-**Nome completo encontrado em fontes públicas:** Murilo Dovigo Bastos  
+**Nome:** Murilo Dovigo  
+**Nome completo encontrado em fontes públicas:** Murilo Dovigo  
 **Username / identidade online:** `Muski360`  
 **Idade:** 17 anos  
 **Localização de referência:** Americana, São Paulo, Brasil  
@@ -29,7 +29,7 @@
 
 ## 2. Resumo profissional
 
-Murilo Bastos é um estudante de desenvolvimento de software de 17 anos, baseado em Americana, São Paulo, com objetivo de construir carreira como desenvolvedor Full Stack.
+Murilo Dovigo é um estudante de desenvolvimento de software de 17 anos, baseado em Americana, São Paulo, com objetivo de construir carreira como desenvolvedor Full Stack.
 
 Atualmente cursa **Técnico em Desenvolvimento de Sistemas no SENAI Americana** e, conforme seu perfil do GitHub, está no **3º de 4 termos** do curso.
 
@@ -650,7 +650,7 @@ O texto deve ser:
 
 ## Opção 1
 
-**Murilo Bastos**  
+**Murilo Dovigo**  
 Desenvolvedor Full Stack em formação.
 
 Construo sistemas, interfaces e experimentos enquanto exploro React, Spring Boot e Inteligência Artificial.
@@ -714,8 +714,8 @@ Contato:
 
 ```yaml
 person:
-  name: "Murilo Bastos"
-  full_name: "Murilo Dovigo Bastos"
+  name: "Murilo Dovigo"
+  full_name: "Murilo Dovigo"
   online_handle: "Muski360"
   age: 17
   location: "Americana, São Paulo, Brasil"
@@ -882,7 +882,7 @@ Adicionar quando disponíveis:
 
 ## Informações fornecidas diretamente por Murilo
 
-- Nome: Murilo Bastos
+- Nome: Murilo Dovigo
 - Idade: 17 anos
 - Objetivo: desenvolvedor Full Stack
 - Stacks favoritas: React e Spring Boot
@@ -930,7 +930,7 @@ Esses dados foram incorporados neste arquivo como informações confirmadas forn
 
 # 26. Resumo de uma linha
 
-> Murilo Bastos é um desenvolvedor Full Stack em formação, de 17 anos, estudante do SENAI São Paulo em Americana, com foco em React, Spring Boot, aplicações web e Inteligência Artificial, inglês avançado e repertório complementar em audiovisual.
+> Murilo Dovigo é um desenvolvedor Full Stack em formação, de 17 anos, estudante do SENAI São Paulo em Americana, com foco em React, Spring Boot, aplicações web e Inteligência Artificial, inglês avançado e repertório complementar em audiovisual.
 
 ---
 

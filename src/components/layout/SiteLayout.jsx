@@ -5,6 +5,7 @@ import { SiteFooter } from './SiteFooter'
 import { RouteEffects } from './RouteEffects'
 import { MotionProvider } from '../motion/MotionProvider'
 import { SmoothScroll } from '../motion/SmoothScroll'
+import { PageMotion } from '../motion/PageMotion'
 
 const subscribeReady = () => () => {}
 const clientReady = () => true
@@ -26,9 +27,9 @@ export function SiteLayout() {
         </a>
         <SiteHeader />
         <RouteEffects />
-        <div className="route-content" key={location.pathname}>
+        <PageMotion key={location.pathname}>
           <Outlet />
-        </div>
+        </PageMotion>
         <SiteFooter />
       </div>
     </MotionProvider>

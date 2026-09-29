@@ -31,7 +31,7 @@ export function SiteFooter() {
       </div>
       <div className="footer-bottom">
         <Brand />
-        <span>© {new Date().getFullYear()} Murilo Bastos</span>
+        <span>© {new Date().getFullYear()} Murilo Dovigo</span>
         <a href="#conteudo" onClick={backToTop}>
           Voltar ao topo ↑
         </a>

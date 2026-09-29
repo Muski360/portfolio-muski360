@@ -12,8 +12,7 @@
   <img src="public/media/muski-disk.webp" width="220" alt="MUSKI360 - Disquete 3.5 polegadas" />
 </a>
 
-# MURILO BASTOS<span style="color:#f45b35;">.</span>
-
+# MURILO DOVIGO<span style="color:#f45b35;">.</span>
 <p align="center">
   Desenvolvedor em formação aos 17 anos. Construo sistemas com React, Spring Boot e IA.
 </p>
@@ -39,9 +38,9 @@
 <table>
 <tr>
 <td width="32%" align="center" valign="middle">
-  <img src="public/media/murilo-480.webp" width="100%" alt="Murilo Bastos" style="max-width: 220px; border-radius: 4px;" />
+  <img src="public/media/murilo-480.webp" width="100%" alt="Murilo Dovigo" style="max-width: 220px; border-radius: 4px;" />
   <br />
-  <sub><b>MURILO BASTOS</b><br />17 anos, Americana SP</sub>
+  <sub><b>MURILO DOVIGO</b><br />17 anos, Americana SP</sub>
 </td>
 <td width="68%" valign="top">
 

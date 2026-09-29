@@ -15,7 +15,7 @@ export function Brand() {
     <Link
       className="brand"
       to="/"
-      aria-label="MUSKI360 — Murilo Bastos, início"
+      aria-label="MUSKI360 — Murilo Dovigo, início"
     >
       <DiskMark />
       <span>

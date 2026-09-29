@@ -10,7 +10,7 @@ export function ProjectCase({ project, index }) {
     >
       <div className="section project-heading">
         <div className="project-title-row">
-          <h2>{project.name}</h2>
+          <h2 data-reveal="title">{project.name}</h2>
           <p>
             {project.category}
             <span>{project.type}</span>
@@ -60,7 +60,7 @@ export function ProjectCase({ project, index }) {
       </div>
       <div className="project-details section">
         <div>
-          <h3>
+          <h3 data-reveal="title">
             {project.detailTitle[0]}
             <br />
             <span className="serif-word">{project.detailTitle[1]}</span>
@@ -69,7 +69,7 @@ export function ProjectCase({ project, index }) {
         </div>
         <ol className="feature-list">
           {project.features.map(([title, description], i) => (
-            <li key={title}>
+            <li key={title} data-reveal>
               <span>{String(i + 1).padStart(2, '0')}</span>
               <div>
                 <h4>{title}</h4>

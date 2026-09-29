@@ -10,7 +10,7 @@ function StackSection() {
     <section className="stack-section section">
       <div className="stack-layout">
         <div className="stack-intro">
-          <h2>
+          <h2 data-reveal="title">
             DA INTERFACE
             <br />
             <span className="serif-word">ao sistema.</span>
@@ -22,7 +22,7 @@ function StackSection() {
         </div>
         <div className="skill-list">
           {skills.map(({ name, description, category }, index) => (
-            <div className="skill-row" key={name}>
+            <div className="skill-row" key={name} data-reveal>
               <span className="row-index">0{index + 1}</span>
               <div>
                 <h3>{name}</h3>
@@ -42,16 +42,16 @@ export default function AboutPage() {
       <section className="about-hero section">
         <div className="about-hero-grid">
           <div>
-            <p className="eyebrow">MURILO BASTOS / MUSKI360</p>
-            <h1>
+            <p className="eyebrow">MURILO DOVIGO / MUSKI360</p>
+            <h1 data-reveal="title">
               CURIOSO
               <br />
               POR NATUREZA.
               <br />
               <span className="serif-word">Dev por escolha.</span>
             </h1>
-            <p className="about-lead">
-              Sou Murilo Bastos, tenho 17 anos e moro em Americana, São Paulo.
+            <p className="about-lead" data-reveal>
+              Sou Murilo Dovigo, tenho 17 anos e moro em Americana, São Paulo.
               Estudo desenvolvimento de software e quero construir minha
               carreira como Full Stack.
             </p>
@@ -61,14 +61,14 @@ export default function AboutPage() {
           </div>
           <figure className="about-portrait">
             <Portrait priority />
-            <figcaption>MURILO BASTOS</figcaption>
+            <figcaption>MURILO DOVIGO</figcaption>
           </figure>
         </div>
       </section>
       <section className="story-section section" id="historia" tabIndex={-1}>
         <SectionLabel>MINHA HISTÓRIA</SectionLabel>
         <div className="story-layout">
-          <h2>
+          <h2 data-reveal="title">
             APRENDO
             <br />
             <span className="serif-word">construindo.</span>
@@ -92,7 +92,7 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-        <div className="facts">
+        <div className="facts" data-reveal>
           <div>
             <span>17</span>
             <p>ANOS</p>
@@ -115,7 +115,7 @@ export default function AboutPage() {
       <section className="contact-section section">
         <div>
           <p className="eyebrow">CONTATO</p>
-          <h2>
+          <h2 data-reveal="title">
             Vamos trocar
             <br />
             <span className="serif-word">uma ideia?</span>
@@ -134,7 +134,7 @@ export default function AboutPage() {
           </a>
           <a href={linkedin} target="_blank" rel="noreferrer">
             <span>LinkedIn</span>
-            <strong>Murilo Dovigo Bastos</strong>
+            <strong>Murilo Dovigo</strong>
             <Arrow diagonal />
           </a>
         </div>

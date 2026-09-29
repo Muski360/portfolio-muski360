@@ -10,7 +10,7 @@ export default function ProjectsPage() {
     <main id="conteudo" tabIndex={-1}>
       <section className="work-hero section">
         <div className="work-hero-title">
-          <h1>PROJETOS.</h1>
+          <h1 data-reveal="title">PROJETOS.</h1>
           <Link
             className="work-jump"
             to="#projetos"
@@ -19,7 +19,7 @@ export default function ProjectsPage() {
             <Arrow />
           </Link>
         </div>
-        <div className="work-hero-bottom">
+        <div className="work-hero-bottom" data-reveal>
           <p>
             Projetos pessoais e acadêmicos onde testo tecnologias, resolvo
             problemas e construo aplicações de ponta a ponta.
@@ -33,13 +33,13 @@ export default function ProjectsPage() {
       </div>
       <section className="experiments-section section">
         <div className="experiments-heading">
-          <h2>
+          <h2 data-reveal="title">
             ESTUDOS<span className="serif-word"> & experimentos.</span>
           </h2>
         </div>
         <div className="experiment-list">
           {experiments.map((item, index) => (
-            <article key={item.area}>
+            <article key={item.area} data-reveal>
               <span className="row-index">0{index + 1}</span>
               <h3>{item.area}</h3>
               <div>

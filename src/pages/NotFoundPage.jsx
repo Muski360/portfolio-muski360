@@ -15,7 +15,7 @@ export default function NotFoundPage() {
           />
           <span className="error-digit">4</span>
         </div>
-        <div className="not-found-bottom">
+        <div className="not-found-bottom" data-reveal>
           <div>
             <h1>
               <span className="sr-only">404 — </span>Página não encontrada.

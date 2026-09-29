@@ -5,28 +5,28 @@ export const routes = [
     path: '/',
     title: 'Início',
     description:
-      'Portfólio de Murilo Bastos, desenvolvedor Full Stack em formação com foco em React, Spring Boot e inteligência artificial.',
+      'Portfólio de Murilo Dovigo, desenvolvedor Full Stack em formação com foco em React, Spring Boot e inteligência artificial.',
   },
   {
     id: 'about',
     path: '/sobre',
     title: 'Sobre',
     description:
-      'Conheça Murilo Bastos, sua trajetória no desenvolvimento de software, interesses e canais de contato.',
+      'Conheça Murilo Dovigo, sua trajetória no desenvolvimento de software, interesses e canais de contato.',
   },
   {
     id: 'projects',
     path: '/projetos',
     title: 'Projetos',
     description:
-      'Projetos e experimentos de Murilo Bastos em desenvolvimento web, APIs, inteligência artificial e mobile.',
+      'Projetos e experimentos de Murilo Dovigo em desenvolvimento web, APIs, inteligência artificial e mobile.',
   },
   {
     id: 'experience',
     path: '/experiencias',
     title: 'Experiências',
     description:
-      'Formação, prática em projetos e certificações de Murilo Bastos.',
+      'Formação, prática em projetos e certificações de Murilo Dovigo.',
   },
 ]
 
@@ -46,7 +46,7 @@ export function getRoute(pathname) {
 }
 
 export function pageTitle(route) {
-  return `${route.title} | Murilo Bastos — MUSKI360`
+  return `${route.title} | Murilo Dovigo — MUSKI360`
 }
 
 export function routeFile(route) {

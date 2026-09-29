@@ -108,7 +108,6 @@
 .menu-dialog[open] {
   display: flex;
   flex-direction: column;
-  animation: menu-in 0.35s var(--ease);
 }
 .menu-top {
   display: flex;
@@ -244,9 +243,6 @@
 [data-ready='false'] .menu-toggle {
   visibility: hidden;
 }
-.route-content {
-  animation: none;
-}
 .footer-invite .footer-line {
   display: flex;
   align-items: center;
@@ -287,9 +283,6 @@
 }
 .footer-invite:focus-visible .footer-line:last-child {
   color: var(--paper);
-}
-.footer-invite:hover .arrow {
-  transform: rotate(0);
 }
 .footer-bottom > span {
   display: block !important;

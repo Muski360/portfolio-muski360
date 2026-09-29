@@ -7,7 +7,7 @@ import { TextLink } from '../components/ui/TextLink'
 function DiskScene() {
   return (
     <div className="disk-scene">
-      <div className="disk-stage">
+      <div className="disk-stage" data-depth>
         <span className="disk-orbit-label" aria-hidden="true">
           360°
         </span>
@@ -22,14 +22,14 @@ function PortfolioOverview() {
     <section className="portfolio-overview" aria-label="Explore o portfólio">
       <Link className="overview-link overview-projects" to="/projetos">
         <div>
-          <h2>PROJETOS</h2>
+          <h2 data-reveal="title">PROJETOS</h2>
           <Arrow diagonal />
         </div>
         <p>Aplicações web, APIs e outros estudos.</p>
       </Link>
       <Link className="overview-link overview-education" to="/experiencias">
         <div>
-          <h2>FORMAÇÃO</h2>
+          <h2 data-reveal="title">FORMAÇÃO</h2>
           <Arrow diagonal />
         </div>
         <p>SENAI Americana, prática e certificações.</p>
@@ -50,15 +50,15 @@ export default function HomePage() {
         <div className="hero-composition">
           <div className="hero-name">
             <h1>
-              <span>MURILO</span>
-              <span>
-                BASTOS<span className="name-dot">.</span>
+              <span data-reveal="name">MURILO</span>
+              <span data-reveal="name">
+                DOVIGO<span className="name-dot">.</span>
               </span>
             </h1>
           </div>
           <DiskScene />
         </div>
-        <div className="hero-bottom">
+        <div className="hero-bottom" data-reveal>
           <Link className="hero-project-link" to="/projetos">
             Ver projetos
             <Arrow diagonal />
@@ -81,12 +81,12 @@ export default function HomePage() {
           <figure className="portrait-frame">
             <Portrait />
             <figcaption>
-              <span>MURILO BASTOS</span>
+              <span>MURILO DOVIGO</span>
               <span>17 ANOS / SP</span>
             </figcaption>
           </figure>
           <div className="profile-copy">
-            <h2>
+            <h2 data-reveal="title">
               Primeiro,
               <br />
               entender.

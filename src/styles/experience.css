@@ -153,13 +153,6 @@
   align-items: center;
   padding: 27px 0;
   border-bottom: 1px solid var(--line);
-  transition:
-    padding 0.3s var(--ease),
-    background 0.3s var(--ease);
-}
-.certificate-list > a:hover {
-  padding-left: 14px;
-  background: #e5e3db;
 }
 .certificate-list small {
   font: 9px var(--mono);
@@ -379,9 +372,5 @@
   }
   .certificate-list p {
     font-size: 10px;
-  }
-  .certificate-list > a:hover {
-    padding-left: 0;
-    background: none;
   }
 }

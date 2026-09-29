@@ -10,12 +10,16 @@ export function FooterInvite({ href }) {
     if (paused || !link?.animate) return
     let animations = []
     let lastRun = -Infinity
+    const easing = getComputedStyle(link).getPropertyValue('--ease-in-out').trim() || 'ease-in-out'
     const stop = () => {
       animations.forEach((animation) => animation.cancel())
       animations = []
     }
-    const roll = () => {
-      if (document.hidden || performance.now() - lastRun < 1100) return
+    const roll = (event) => {
+      if (
+        event?.pointerType === 'touch' || document.hidden ||
+        performance.now() - lastRun < 1100
+      ) return
       lastRun = performance.now()
       stop()
       animations = [...link.querySelectorAll('.type-track')].map(
@@ -23,9 +27,9 @@ export function FooterInvite({ href }) {
           letter.animate(
             [{ transform: 'translateY(0)' }, { transform: 'translateY(-50%)' }],
             {
-              duration: 740,
-              delay: (index % 14) * 22,
-              easing: 'cubic-bezier(.65,0,.25,1)',
+              duration: 640,
+              delay: (index % 14) * 18,
+              easing,
             },
           ),
       )
@@ -35,7 +39,10 @@ export function FooterInvite({ href }) {
         ? null
         : new IntersectionObserver(
             ([entry]) => {
-              if (entry.intersectionRatio >= 0.45) roll()
+              if (entry.intersectionRatio >= 0.45) {
+                roll()
+                observer.unobserve(link)
+              }
               else if (!entry.isIntersecting) stop()
             },
             { threshold: [0, 0.45] },

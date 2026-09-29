@@ -8,26 +8,26 @@ export default function ExperiencePage() {
     <main id="conteudo" tabIndex={-1}>
       <section className="experience-hero section">
         <div className="experience-hero-grid">
-          <h1>
+          <h1 data-reveal="title">
             EM
             <br />
             <span>FORMAÇÃO.</span>
           </h1>
-          <div className="term-composition">
+          <div className="term-composition" data-reveal>
             <span className="eyebrow">SENAI / DESENVOLVIMENTO DE SISTEMAS</span>
             <span className="term-current">
               03<span>/04</span>
             </span>
             <div className="term-track" role="img" aria-label="3º de 4 termos">
-              <i />
-              <i />
-              <i />
+              <i data-reveal="rule" />
+              <i data-reveal="rule" />
+              <i data-reveal="rule" />
               <i />
             </div>
             <span className="eyebrow">TERMOS / EM ANDAMENTO</span>
           </div>
         </div>
-        <p className="experience-lead">
+        <p className="experience-lead" data-reveal>
           Minha experiência vem da formação técnica, de projetos acadêmicos e da
           experimentação. Ainda não tenho experiência profissional formal.
         </p>
@@ -36,12 +36,12 @@ export default function ExperiencePage() {
         <div className="timeline-heading">
           <h2>
             <span className="sr-only">Formação: </span>
-            2024 <span className="timeline-year-rule" aria-hidden="true" />
+            2024 <span className="timeline-year-rule" data-reveal="rule" aria-hidden="true" />
             <span className="sr-only">a </span>2026
           </h2>
         </div>
         <div className="timeline-list">
-          <article>
+          <article data-reveal>
             <span className="timeline-date">2025 — 2026</span>
             <div>
               <p className="eyebrow">EM ANDAMENTO · 3º DE 4 TERMOS</p>
@@ -54,7 +54,7 @@ export default function ExperiencePage() {
             </div>
             <span className="timeline-dot" aria-hidden="true" />
           </article>
-          <article>
+          <article data-reveal>
             <span className="timeline-date">2024 — 2026</span>
             <div>
               <p className="eyebrow">EM ANDAMENTO</p>
@@ -67,7 +67,7 @@ export default function ExperiencePage() {
       </section>
       <section className="practice-section section">
         <p className="eyebrow">EXPERIÊNCIA PRÁTICA</p>
-        <h2>
+        <h2 data-reveal="title">
           SITES, SISTEMAS,
           <br />
           APIs E <span className="serif-word">experimentos.</span>
@@ -87,7 +87,7 @@ export default function ExperiencePage() {
       <section className="certifications-section section">
         <SectionLabel>CERTIFICAÇÕES</SectionLabel>
         <div className="certifications-heading">
-          <h2>
+          <h2 data-reveal="title">
             TÉCNICA &<br />
             <span className="serif-word">repertório criativo.</span>
           </h2>
