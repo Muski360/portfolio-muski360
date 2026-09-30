@@ -1,5 +1,5 @@
-import { Film } from '../media/Film'
 import { TextLink } from '../ui/TextLink'
+import { ProjectPreview } from './ProjectPreview'
 
 export function ProjectCase({ project, index }) {
   return (
@@ -21,30 +21,7 @@ export function ProjectCase({ project, index }) {
         {project.graphic === 'court' && (
           <div className="court-lines" aria-hidden="true" />
         )}
-        <div className="project-screen">
-          <div className="screen-bar">
-            <span>
-              <i />
-              <i />
-              <i />
-            </span>
-            <span>{project.name}</span>
-            <a
-              href={project.repository}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`Repositório do ${project.name}`}
-            >
-              ↗
-            </a>
-          </div>
-          <Film
-            name={project.name}
-            src={project.video}
-            poster={project.poster}
-            alt={project.mediaAlt}
-          />
-        </div>
+        <ProjectPreview project={project} />
       </div>
       <div className="project-summary section">
         <span className="project-number" aria-hidden="true">

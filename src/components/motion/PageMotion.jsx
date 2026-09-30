@@ -17,21 +17,36 @@ export function PageMotion({ children }) {
     const animations = new Map()
     const ease = getComputedStyle(root).getPropertyValue('--ease-out').trim() || 'ease-out'
     const stop = () => {
-      animations.forEach((animation) => animation.cancel())
+      animations.forEach((animation, target) => {
+        animation.cancel()
+        observer.unobserve(target)
+      })
       animations.clear()
     }
     const observer = new IntersectionObserver(
       (entries) => {
         let order = 0
-        for (const { target, isIntersecting } of entries) {
-          if (!isIntersecting || seen.current.has(target)) continue
+        for (const { target, isIntersecting, boundingClientRect } of entries) {
+          if (!isIntersecting) {
+            // A reveal mask can affect intersection; only leaving the actual
+            // viewport cancels the entrance.
+            if (boundingClientRect.bottom <= 0 || boundingClientRect.top >= innerHeight) {
+              animations.get(target)?.cancel()
+              animations.delete(target)
+              if (seen.current.has(target)) observer.unobserve(target)
+            }
+            continue
+          }
+          if (seen.current.has(target)) continue
           seen.current.add(target)
-          observer.unobserve(target)
           // History, deep links and keyboard focus must never wait for a reveal.
           if (
             document.hidden || target.contains(document.activeElement) ||
             (window.scrollY > 0 && target.getBoundingClientRect().top < 24)
-          ) continue
+          ) {
+            observer.unobserve(target)
+            continue
+          }
           const rule = target.dataset.reveal === 'rule'
           const name = target.dataset.reveal === 'name'
           const title = name || target.dataset.reveal === 'title'
@@ -53,7 +68,10 @@ export function PageMotion({ children }) {
             fill: 'backwards',
           })
           animations.set(target, animation)
-          animation.onfinish = () => animations.delete(target)
+          animation.onfinish = () => {
+            animations.delete(target)
+            observer.unobserve(target)
+          }
         }
       },
       { rootMargin: '0px 0px -24px 0px', threshold: 0.08 },

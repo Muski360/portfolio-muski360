@@ -3,7 +3,6 @@ import { Portrait } from '../components/media/Portrait'
 import { Arrow } from '../components/ui/Arrow'
 import { SectionLabel } from '../components/ui/SectionLabel'
 import { skills } from '../data/profile'
-import { email, github, linkedin } from '../data/site'
 
 function StackSection() {
   return (
@@ -15,7 +14,6 @@ function StackSection() {
             <br />
             <span className="serif-word">ao sistema.</span>
           </h2>
-          <p>Ferramentas que fazem parte do meu caminho.</p>
           <Link className="small-link" to="/experiencias">
             Acompanhe minha formação <Arrow />
           </Link>
@@ -42,7 +40,6 @@ export default function AboutPage() {
       <section className="about-hero section">
         <div className="about-hero-grid">
           <div>
-            <p className="eyebrow">MURILO DOVIGO / MUSKI360</p>
             <h1 data-reveal="title">
               CURIOSO
               <br />
@@ -112,33 +109,6 @@ export default function AboutPage() {
         </div>
       </section>
       <StackSection />
-      <section className="contact-section section">
-        <div>
-          <p className="eyebrow">CONTATO</p>
-          <h2 data-reveal="title">
-            Vamos trocar
-            <br />
-            <span className="serif-word">uma ideia?</span>
-          </h2>
-        </div>
-        <div className="contact-links">
-          <a href={email}>
-            <span>E-mail</span>
-            <strong>murilodovigo@gmail.com</strong>
-            <Arrow diagonal />
-          </a>
-          <a href={github} target="_blank" rel="noreferrer">
-            <span>GitHub</span>
-            <strong>@Muski360</strong>
-            <Arrow diagonal />
-          </a>
-          <a href={linkedin} target="_blank" rel="noreferrer">
-            <span>LinkedIn</span>
-            <strong>Murilo Dovigo</strong>
-            <Arrow diagonal />
-          </a>
-        </div>
-      </section>
     </main>
   )
 }

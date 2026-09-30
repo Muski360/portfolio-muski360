@@ -1,14 +1,20 @@
-import { useLinkClickHandler } from 'react-router-dom'
+import { NavLink, useLinkClickHandler } from 'react-router-dom'
 import { Brand } from './Brand'
 import { FooterInvite } from './FooterInvite'
 import { Arrow } from '../ui/Arrow'
 import { email, github, linkedin } from '../../data/site'
+import { navigation } from '../../routes'
 
 export function SiteFooter() {
   const backToTop = useLinkClickHandler('#conteudo')
   return (
     <footer className="site-footer">
       <div className="footer-top">
+        <nav className="footer-nav" aria-label="Explore o portfólio">
+          {navigation.map(({ path, title }) => (
+            <NavLink key={path} to={path}>{title}</NavLink>
+          ))}
+        </nav>
         <span className="footer-location">
           AMERICANA, SP
           <br />

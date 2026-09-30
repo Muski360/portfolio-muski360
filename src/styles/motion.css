@@ -44,11 +44,10 @@
   background-color: var(--paper);
   color: var(--ink);
 }
-.certificate-list > a,
-.contact-links a {
+.certificate-list > a {
   transition: background-color var(--motion-fast);
 }
-:is(.certificate-list > a, .contact-links a):is(:hover, :focus-visible) {
+.certificate-list > a:is(:hover, :focus-visible) {
   background-color: #24252008;
 }
 
@@ -78,6 +77,9 @@
   [data-motion='playing'] .menu-dialog[open] nav a:nth-child(3) { animation-delay: 80ms; }
   [data-motion='playing'] .menu-dialog[open] nav a:nth-child(4) { animation-delay: 120ms; }
   [data-motion='playing'] .menu-dialog nav:focus-within a { animation: none; }
+  [data-motion='playing'] .project-preview-dialog[open] {
+    animation: preview-enter 320ms var(--ease-out) both;
+  }
 
   @media (hover: hover) and (pointer: fine) {
     [data-motion='playing'] .disk-stage .film {
@@ -175,4 +177,8 @@
 @keyframes index-enter {
   from { translate: 0 18px; opacity: 0.4; }
   to { translate: 0 0; opacity: 1; }
+}
+@keyframes preview-enter {
+  from { opacity: 0.65; translate: 0 12px; scale: 0.985; }
+  to { opacity: 1; translate: 0 0; scale: 1; }
 }

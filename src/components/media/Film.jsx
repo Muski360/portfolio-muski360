@@ -3,7 +3,7 @@ import { useVideoPlayback } from '../../hooks/useVideoPlayback'
 
 const rotationText = (angle) => `${Math.round((angle / 360) * 100)}% da rotação`
 
-function FilmContent({ name, src, poster, alt, isDisk, className, priority }) {
+function FilmContent({ name, src, poster, alt, isDisk, className, priority, suspended }) {
   const {
     videoRef,
     frameRef,
@@ -15,7 +15,7 @@ function FilmContent({ name, src, poster, alt, isDisk, className, priority }) {
     pause,
     seek,
     events,
-  } = useVideoPlayback(src)
+  } = useVideoPlayback(src, suspended)
   const rangeRef = useRef(null)
   const controlId = useId()
   const hasVideo = Boolean(src) && !failed
@@ -80,12 +80,10 @@ function FilmContent({ name, src, poster, alt, isDisk, className, priority }) {
       </div>
       {isDisk && hasVideo && (
         <div className="disk-controls">
-          <label className="sr-only" htmlFor={controlId}>
-            Rotação do disquete
+          <label htmlFor={controlId}>
+            <span aria-hidden="true">GIRAR</span>
+            <span className="sr-only">Rotação do disquete</span>
           </label>
-          <span className="rotation-symbol" aria-hidden="true">
-            ↔
-          </span>
           <input
             id={controlId}
             ref={rangeRef}
@@ -126,6 +124,7 @@ export function Film({
   alt,
   className = '',
   priority = false,
+  suspended = false,
 }) {
   const isDisk = variant === 'disk'
   const poster = isDisk ? '/media/muski-disk.webp' : suppliedPoster
@@ -145,6 +144,7 @@ export function Film({
       isDisk={isDisk}
       className={className}
       priority={priority}
+      suspended={suspended}
     />
   )
 }

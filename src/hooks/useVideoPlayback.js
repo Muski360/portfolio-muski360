@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useMotion } from './useMotion'
 
-export function useVideoPlayback(src) {
-  const { paused } = useMotion()
+export function useVideoPlayback(src, suspended = false) {
+  const { paused: motionPaused } = useMotion()
+  const paused = motionPaused || suspended
   const videoRef = useRef(null)
   const frameRef = useRef(null)
   const playback = useRef({ manual: false, attempt: 0, pendingSeek: null })

@@ -101,6 +101,8 @@
 }
 .disk-controls label {
   white-space: nowrap;
+  font-size: 10px;
+  letter-spacing: 0.04em;
 }
 .disk-controls input {
   appearance: none;
@@ -112,23 +114,26 @@
   touch-action: pan-y;
   height: 44px;
 }
-.disk-controls input::-webkit-slider-runnable-track,
+.disk-controls input::-webkit-slider-runnable-track {
+  height: 2px;
+  background: #77796d;
+}
 .disk-controls input::-moz-range-track {
-  height: 1px;
-  background: #aaa99f;
+  height: 2px;
+  background: #77796d;
 }
 .disk-controls input::-webkit-slider-thumb {
   appearance: none;
-  width: 9px;
-  height: 15px;
+  width: 12px;
+  height: 18px;
   background: var(--ink);
   border: 0;
   border-radius: 0;
-  margin-top: -7px;
+  margin-top: -8px;
 }
 .disk-controls input::-moz-range-thumb {
-  width: 9px;
-  height: 15px;
+  width: 12px;
+  height: 18px;
   background: var(--ink);
   border: 0;
   border-radius: 0;
@@ -173,9 +178,6 @@
 }
 [data-ready='false'] .film-pause {
   display: none;
-}
-.rotation-symbol {
-  font: 24px var(--body);
 }
 .disk-reset:disabled {
   opacity: 0.25;
@@ -227,9 +229,6 @@
     top: 10%;
     right: 0;
     font-size: 42px;
-  }
-  .rotation-symbol {
-    font-size: 20px;
   }
   .disk-controls input {
     height: 44px;

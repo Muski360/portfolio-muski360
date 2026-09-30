@@ -3,6 +3,7 @@ import { useMotion } from '../../hooks/useMotion'
 
 export function FooterInvite({ href }) {
   const linkRef = useRef(null)
+  const entered = useRef(false)
   const { paused } = useMotion()
 
   useEffect(() => {
@@ -39,9 +40,9 @@ export function FooterInvite({ href }) {
         ? null
         : new IntersectionObserver(
             ([entry]) => {
-              if (entry.intersectionRatio >= 0.45) {
+              if (entry.intersectionRatio >= 0.45 && !entered.current) {
+                entered.current = true
                 roll()
-                observer.unobserve(link)
               }
               else if (!entry.isIntersecting) stop()
             },

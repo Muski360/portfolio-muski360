@@ -91,7 +91,6 @@ export default function ExperiencePage() {
             TÉCNICA &<br />
             <span className="serif-word">repertório criativo.</span>
           </h2>
-          <p>Do código ao ritmo de edição.</p>
         </div>
         <div className="certificate-list">
           {certifications.map((certificate, index) => {
@@ -104,16 +103,7 @@ export default function ExperiencePage() {
                   <p>{certificate.org}</p>
                 </div>
                 <time>{certificate.date}</time>
-                {certificate.url ? (
-                  <Arrow diagonal />
-                ) : (
-                  <span
-                    className="certificate-seal"
-                    aria-label="Certificação técnica"
-                  >
-                    ↗
-                  </span>
-                )}
+                {certificate.url && <Arrow diagonal />}
               </>
             )
             return certificate.url ? (
